@@ -121,94 +121,79 @@ body {
   margin: 0 auto;
 }
 
+/* Contenedor principal de las tarjetas */
 main.content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  min-height: 60vh;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
 
+/* Tarjeta individual */
 .card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
-  height: 400px;
-  margin: 10px;
-  overflow: hidden;
+  height: 480px;
   perspective: 1000px;
+  cursor: pointer;
 }
 
+/* Contenedor interno que se voltea */
 .card_inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.8s ease;
   transform-style: preserve-3d;
-  position: relative;
 }
 
+/* Caras de la tarjeta */
 .card_face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Cara frontal */
 .card_face--front {
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background: linear-gradient(135deg, #0c77f1, #2980b9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(0deg);
+}
+
+/* Cara trasera */
+.card_face--back {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transform: rotateY(180deg);
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.card_face--back {
-  background-color: var(--background-color-light);
-  color: var(--text-color-dark);
-  transform: rotateY(180deg);
-  display: block;
-  padding: 0;
-}
-
-.card_content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 20px;
-}
-
-.card_header {
-  margin-bottom: 15px;
-}
-
-.pp {
-  width: 100px;
-  height: 100px;
+/* Imagen en la cara trasera */
+.card_face--back .pp {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  display: block;
-  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
-.card_body {
-  flex-grow: 1;
-  overflow-y: auto;
-  text-align: left;
-}
-.card_body p {
-  margin-bottom: 10px;
-}
-.card_body p:last-child {
-  margin-bottom: 0;
+/* Activar el volteo */
+.card.is-flipped .card_inner {
+  transform: rotateY(180deg);
 }
 
 .card.is-flipped .card_inner {
@@ -256,11 +241,18 @@ main.content {
 }
 
 @media (max-width: 768px) {
-  #text {
-    font-size: 10vh;
+  .card {
+    width: 90%;
+    height: auto;
   }
-  #nav_bar {
+  .navbar {
     flex-direction: column;
-    font-size: 1.5rem;
+    align-items: stretch;
   }
-} /*# sourceMappingURL=style.css.map */
+  .hero {
+    padding: 30px 10px;
+  }
+  main.content {
+    padding: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */

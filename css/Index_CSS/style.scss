@@ -121,103 +121,82 @@ body {
     margin: 0 auto;
   }
 
-  // Estilos para el Contenedor de las Tarjetas (main.content)
+/* Contenedor principal de las tarjetas */
 main.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    // margin-top: 50px; // Ejemplo, ajusta según necesidad
-    min-height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
 }
 
-// Estilos Generales para cada Tarjeta (.card)
+/* Tarjeta individual */
 .card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    height: 400px;
-    margin: 10px;
-    overflow: hidden;
-    perspective: 1000px;
+  width: 300px;
+  height: 480px;
+  perspective: 1000px;
+  cursor: pointer;
 }
-// Estilos para el Contenedor Interno de la Tarjeta (.card_inner)
+
+/* Contenedor interno que se voltea */
 .card_inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
 }
-// Estilos para las Caras de la Tarjeta (.card_face)
+
+/* Caras de la tarjeta */
 .card_face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-// Estilos específicos para la Cara Frontal
+
+/* Cara frontal */
 .card_face--front {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    flex-direction: column;
-    justify-content: center;
-    
+  background: linear-gradient(135deg, #0c77f1, #2980b9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(0deg);
 }
 
-// Estilos específicos para la Cara Trasera
+/* Cara trasera */
 .card_face--back {
-    background-color: var(--background-color-light);
-    color: var(--text-color-dark);
-    transform: rotateY(180deg);
-    display: block;
-    padding: 0;
-    
-}
-// Estilos para el Contenido dentro de la Cara Trasera (.card_content)
-.card_content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 20px;
-}// Estilos para el Header del Contenido Trasero (.card_header)
-.card_header {
-    margin-bottom: 15px;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transform: rotateY(180deg);
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-// Estilos para la Imagen del Perfil (.pp)
-.pp {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
+/* Imagen en la cara trasera */
+.card_face--back .pp {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
 
-// Estilos para el Cuerpo del Contenido Trasero (.card_body)
-.card_body {
-  height:auto;
-    flex-grow: 1;
-    overflow-y: auto;
-    text-align: left;
-
-    p {
-        margin-bottom: 10px;
-        &:last-child {
-            margin-bottom: 15px;
-        }
-    }
+/* Activar el volteo */
+.card.is-flipped .card_inner {
+  transform: rotateY(180deg);
 }
+
+
+
 
 // Clase para activar el volteo con JavaScript
 .card.is-flipped .card_inner {
@@ -225,9 +204,10 @@ main.content {
 }
 
 // Estilo opcional para la cara frontal al voltear
-/* .card.is-flipped .card_face--front {
+.card.is-flipped .card_face--front {
      transform: rotateY(-180deg); // O 180deg
-} */
+}
+
 
 /* Estilos para el footer */
 .footer {
@@ -266,12 +246,23 @@ main.content {
     transform: translateX(-50%) scale(0.9);
   }
   
-  @media (max-width: 768px) {
-    #text {
-      font-size: 10vh;
-    }
-    #nav_bar {
-      flex-direction: column;
-      font-size: 1.5rem;
-    }
-  }/*# sourceMappingURL=style.css.map */
+ // Responsive para pantallas pequeñas
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero {
+    padding: 30px 10px;
+  }
+
+  main.content {
+    padding: 10px;
+  }
+} 
