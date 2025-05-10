@@ -1,0 +1,127 @@
+* {
+    margin: 0; /* para que no haya margenes */
+    padding: 0; /* para que no haya padding */
+    box-sizing: border-box; /* para que no haya problemas con los bordes */
+}
+
+body {
+    background: #eaeaea;
+}
+
+.container {
+    background: black;
+    position: absolute; /* se posiciona de manera absoluta */
+    top: 50%; /* 50% desde la parte superior del contenedor de referencia, en este caso seria el body */
+    left: 50%; /* otro 50% de distancia con el borde izquierdo*/
+    transform: translate(-50%, -50%); /* para que se posicione en el centro, con transform, vamos a decir que aplicamos una transformacion y con el translate le diremos
+    que se traslade en el eje x un 50% y en el eje y un 50% */ 
+    width: 80%;
+    height: 600px;
+    box-shadow: 15px 30px 50px #23ad07;
+    border-radius: 20px;
+
+}
+
+.container .slide .item {
+    width: 200px;
+    height: 300px;
+    position: absolute; /*posiciona un elemento de manera absoluta, con respesto a su contendedor 
+    mas cercano que tenga una posicion relativa, si no hay ningun contenedor con posicion relativa, 
+    se toma el body como referencia */
+    top: 50%; /* 50% desde la parte superior del contenedor de referencia, en este caso, el container padre */
+    transform: translate(0, -50%); /* y aqui lo va a trasladar en el eje y un 50% hacia arriba */
+    display: inline-block;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+/* .slide .item:nth-child(1), */
+.slide .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.slide .item:nth-child(3) {
+    left: 50%;
+
+}
+
+.slide .item:nth-child(4) {
+    left: calc(50% + 220px);
+
+}
+
+.slide .item:nth-child(5) {
+    left: calc(50% + 440px);
+}
+
+.slide .item:nth-child(n+6) {
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+.item .contenido{
+    color: white;
+    display: none;
+
+}
+.slide .item:nth-child(2) .contenido{
+    display: block;
+    width: 300px;
+    text-align: left;
+    position: absolute;
+    top: 75%;
+    left: 50px;
+    transform: translateY(-50%);
+    font-family: 'Arcane_Nine';
+}
+
+.container .nombre{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Arcane_Nine', sans-serif;
+}
+.container .descripcion{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+    font-family: 'Arcane_Nine', sans-serif;
+}
+@keyframes animate{
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+        filter: blur(10);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+@import url(Arcane_Nine.otf);
+
+.botonera{
+    width: 100;
+    position: absolute;
+    top:80%;
+    left: 50%;
+}
+.botonera button{
+    width: 100px;
+    height: 40px;
+    background: rgb(219, 216, 216);
+    color: rgb(12, 12, 12);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+}

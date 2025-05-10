@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Programación</title>
+    <link rel="stylesheet" href=works.css>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="dropdown">
+            <a href="../index.html" class="dropdown-button">Sobre mí</a>
+            <div class="dropdown-content" id="sobreMiDropdown">
+                <a href="../index/index.html" id="enlace-sobre-mi">Mi Historia</a>
+                <a href="../index/index.html" id="enlace-habilidades">Mis Habilidades</a>
+                <a href="../index/index.html" id="enlace-experiencia">Mi Experiencia</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="works.html" class="dropdown-button">Trabajos</a>
+            <div class="dropdown-content" id="trabajosDropdown">
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../contacto/contacto.html" class="dropdown-button">Contacto</a>
+            <div class="dropdown-content" id="contactoDropdown">
+                <a href="#formulario-contacto">Formulario de Contacto</a>
+                <a href="#redes-sociales">Redes Sociales</a>
+                <a href="#informacion-contacto">Información de Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <section class="banner">
+            <div class="container">
+                <div id="scene">
+                    <h2 id="text">
+                        <span data-depth-y="2">P</span>
+                        <span data-depth-y="-6">R</span>
+                        <span data-depth-y="5">O</span>
+                        <span data-depth-y="-8">Y</span>
+                        <span data-depth-y="-3">E</span>
+                        <span data-depth-y="6">C</span>
+                        <span data-depth-y="-4">T</span>
+                        <span data-depth-y="9">O</span>
+                        <span data-depth-y="-5">S</span>
+                    </h2>
+
+                </div>
+            </div>
+        </section>
+        <h1>Navega y descubre los proyectos que aprendí en 2025</h1>
+        <p>Soy una persona que me gusta mucho viajar y los videojuegos han formado parte de mi vida desde niño por lo
+            que, relajate y viaja descubriendo los proyectos que he realizado.</p>
+
+    </header>
+    <main class="content">
+        <div id="mapa-proyectos">
+            <img id="project-map" src="../img/top-view-paper-style-community-map.jpg" alt="mapa-proyectos">
+
+            <div class="project-marker" id="marker-proyecto1" data-proyecto="Proyecto_Hyper">
+                <div class="marker-circle"></div>
+            </div>
+
+            <div class="project-marker" id="marker-proyecto2" data-proyecto="Proyecto_Lightmouse">
+                <div class="marker-circle"></div>
+            </div>
+
+            <div class="project-marker" id="marker-proyecto3" data-proyecto="ProyectoArcane">
+                <div class="marker-circle"></div>
+            </div>
+
+            <div class="project-marker" id="marker-proyecto4" data-proyecto="ProyectoCamille">
+                <div class="marker-circle"></div>
+            </div>
+        </div>
+
+    </main>
+    <!-- Modal para mostrar los proyectos -->
+    <div id="proyectoModal" class="modal">
+        <div class="modal-content">
+            <span class="maximize-button">&#9974;</span> <span class="close-button">&times;</span>  <h2 id="modal-proyecto-titulo">Título del Proyecto Aquí</h2>
+            <iframe id="modal-proyecto-iframe" src="" frameborder="0" width="100%" height="600px"></iframe>  <div id="modal-proyecto-enlaces">
+                <!-- <a href="#" id="modal-enlace-codigo" target="_blank">Ver Código</a> -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src ="../scripts/works.js"></script>
+
+</body>
+<footer class="footer">
+        <div class="arrow up" id="scrollUpArrow">
+            <div>
+                <img src="../img/descarga-arrow.png" />
+            </div>
+        </div>
+        <p>© 2023 Joshua Jimenez Perez. Todos los derechos reservados.</p>
+    </footer>
+</html>

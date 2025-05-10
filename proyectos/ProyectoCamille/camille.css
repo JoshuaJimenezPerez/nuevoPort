@@ -1,0 +1,25 @@
+body{
+    height: 100vh; /* es el 100% de la altura de la ventana */
+    width: 100vh;
+    background-color: black;
+    margin: 0rem; /*rem es una unidad de medida que se basa en el tamaño de la fuente del elemento raíz*/
+    overflow: hidden;
+}
+#image-track{
+    user-select: none;
+    -webkit-user-select: none;
+    display: flex; /*Los elementos hijos de la clase se colocan en una fila*/
+    gap: 4vmin; /*Espacio entre los elementos hijos de la clase*/
+    position: absolute; /*La clase se posiciona de forma absoluta en relación al elemento padre*/
+    left: 50%; /*La clase se posiciona en el 50% del elemento padre*/
+    top: 50%; /*La clase se posiciona en el 50% del elemento padre*/
+    transform: translate(-50%, -50%); /*La clase se desplaza en relación al 50% del elemento padre*/
+}
+#image-track > .image{  /*Mayor que indica que la clase imagen es un hijo directo de la clase imagetrack*/
+    -webkit-user-drag: none; /*No se puede arrastrar la imagen*/
+    width: 40vmin; /*vmin es una unidad de medida que se basa en el tamaño de la ventana más pequeña*/
+    height: 56vmin;
+    object-fit: cover; /*La imagen se ajusta al tamaño del contenedor*/
+    object-position: center; /*La imagen se posiciona en el centro del contenedor*/
+
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Programación</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        Zintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="dropdown">
+            <a href="../index.html" class="dropdown-button">Sobre mí</a>
+            <div class="dropdown-content" id="sobreMiDropdown">
+                <a href="#sobre-mi" id="enlace-sobre-mi">Mi Historia</a>
+                <a href="#habilidades" id="enlace-habilidades">Mis Habilidades</a>
+                <a href="#experiencia" id="enlace-experiencia">Mi Experiencia</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="../works/works.html" class="dropdown-button">Trabajos</a>
+            <div class="dropdown-content" id="trabajosDropdown">
+                <a href="">Proyectos</a>
+                <a href="#portafolio">Portafolio</a>
+
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="contacto.html" class="dropdown-button">Contacto</a>
+            <div class="dropdown-content" id="contactoDropdown">
+                <a href="#formulario-contacto">Formulario de Contacto</a>
+                <a href="#redes-sociales">Redes Sociales</a>
+                <a href="#informacion-contacto">Información de Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <section class="banner">
+            <div class="container">
+                <div id="scene">
+                    <h2 id="text">
+                        <span data-depth-y="2">C</span>
+                        <span data-depth-y="-6">O</span>
+                        <span data-depth-y="5">N</span>
+                        <span data-depth-y="-8">T</span>
+                        <span data-depth-y="-3">A</span>
+                        <span data-depth-y="6">C</span>
+                        <span data-depth-y="-4">T</span>
+                        <span data-depth-y="9">O</span>
+                    </h2>
+
+                </div>
+            </div>
+        </section>
+        <h1>¿Te gusta mi trabajo?</h1>
+        <p>Echa un vistazo a mis redes sociales, puedes ver mi GitHub o mi perfil en Linkedin,
+            y no dudes en contactar conmigo si lo deseas.</p>
+
+    </header>
+    <main class="content">
+        <section id="contact-section">
+            <div class="container-rrss">
+                <div id="social-links-container">
+                    <div id="radial-menu-container">
+                        <button id="radial-menu-toggle">
+                            <i class="fas fa-plus"></i> </button>
+                        <ul id="radial-menu-items">
+                            <li class="radial-menu-item">
+                                <a href="https://github.com/JoshuaJimenezPerez" target="_blank"
+                                    class="radial-menu-link github-link">
+                                    <i class="fab fa-github"></i>
+                                    <span class="radial-menu-text">GitHub</span>
+                                </a>
+                            </li>
+                            <li class="radial-menu-item">
+                                <a href="https://www.linkedin.com/in/joshua-jim%C3%A9nez-p%C3%A9rez-5b3291304/"
+                                    target="_blank" class="radial-menu-link linkedin-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span class="radial-menu-text">LinkedIn</span>
+                                </a>
+                            </li>
+                            <li class="radial-menu-item">
+                                <a href="https://www.instagram.com/TuUsuarioDeInstagram" target="_blank"
+                                    class="radial-menu-link instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    <span class="radial-menu-text">Instagram</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="contact-form-container">
+                    <h2>Formulario de Contacto</h2>
+                    <form id="formulario-contacto" action="#" method="POST">
+                        <div class="campo-formulario">
+                            <label for="contacto-tipo">¿Es contacto como?</label>
+                            <div class="opciones-tipo-contacto">
+                                <input type="radio" id="contacto-tipo-usuario" name="contacto_tipo" value="usuario"
+                                    checked>
+                                <label for="contacto-tipo-usuario">Usuario</label>
+
+                                <input type="radio" id="contacto-tipo-empresa" name="contacto_tipo" value="empresa">
+                                <label for="contacto-tipo-empresa">Empresa</label>
+                            </div>
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="correo">Correo Electrónico:</label>
+                            <input type="email" id="correo" name="correo" required placeholder="tu@email.com">
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="mensaje">¿En qué puedo ayudarte?:</label>
+                            <textarea id="mensaje" name="mensaje" rows="5"
+                                placeholder="Escribe aquí tu mensaje"></textarea>
+                        </div>
+
+                        <div class="campo-formulario checkbox-formulario">
+                            <input type="checkbox" id="aceptar-correo" name="aceptar_correo" value="si">
+                            <label for="aceptar-correo">Acepto recibir comunicaciones por correo electrónico.</label>
+                        </div>
+
+                        <div class="botones-formulario">
+                            <button type="submit">Enviar Mensaje</button>
+                            <button type="reset">Limpiar Formulario</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/contact.js"></script>
+
+</body>
+<footer class="footer">
+    <div class="arrow up" id="scrollUpArrow">
+        <div>
+            <img src="../img/descarga-arrow.png" />
+        </div>
+    </div>
+    <p>© 2023 Joshua Jimenez Perez. Todos los derechos reservados.</p>
+</footer>
+
+</html>

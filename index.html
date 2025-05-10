@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Programación</title>
+    <link rel="stylesheet" href="css/Index_CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="dropdown">
+            <a href="index.html" class="dropdown-button">Sobre mí</a>
+            <div class="dropdown-content" id="sobreMiDropdown">
+                <a href="#sobre-mi" id="enlace-sobre-mi">Mi Historia</a>
+                <a href="#habilidades" id="enlace-habilidades">Mis Habilidades</a>
+                <a href="#experiencia" id="enlace-experiencia">Mi Experiencia</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="works/works.html" class="dropdown-button">Trabajos</a>
+            <div class="dropdown-content" id="trabajosDropdown">
+                <a href="">Proyectos</a>
+                <a href="#portafolio">Portafolio</a>
+
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <a href="contacto/contact.html" class="dropdown-button">Contacto</a>
+            <div class="dropdown-content" id="contactoDropdown">
+                <a href="#formulario-contacto">Formulario de Contacto</a>
+                <a href="#redes-sociales">Redes Sociales</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <section class="banner">
+            <div class="container">
+                <div id="scene">
+                    <h2 id="text">
+                        <span data-depth-y="2">J</span>
+                        <span data-depth-y="-6">O</span>
+                        <span data-depth-y="5">S</span>
+                        <span data-depth-y="-8">H</span>
+                        <span data-depth-y="-3">U</span>
+                        <span data-depth-y="6">A</span>
+                    </h2>
+
+                   
+
+                </div>
+
+            </div>
+        </section>
+        <h1>Bienvenido a mi Portafolio de Programación</h1>
+        <p>Descubre mi trabajo y habilidades como desarrollador.</p>
+    </header>
+
+    <main class="content">
+        
+        <div class="card" id="sobre-mi-card">
+            <div class="card_inner">
+                <div class="card_face card_face--front">
+                    <h2>Sobre Mí</h2>
+                </div>
+                <div class="card_face card_face--back">
+                    <div class="card_content">
+                        <div class="card_header">
+                            <img src="img/FOTO JOSHUA JIMENEZ PEREZ.jpg" alt="Joshua Jimenez" class="pp" />
+                        </div>
+                        <div class="card_body">
+                            <p>Me llamo Joshua Jimenez, estudié Desarrollo de Aplicaciones Web en Caceres, en el año
+                                2023.
+                                Desde entonces, me he dedicado a la programación y desarrollo de software,
+                                especializándome en
+                                tecnologías web.
+                                Mi pasión por la informatica viene desde pequeño, trasteando con ordenadores y
+                                videojuegos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="habilidades-card">
+            <div class="card_inner">
+                <div class="card_face card_face--front">
+                    <h2>Mis habilidades</h2>
+                </div>
+                <div class="card_face card_face--back">
+                    <div class="card_content">
+                        <div class="card_header">
+                            <img src="img/html-5.png" alt="html5" class="pp" />
+                        </div>
+                        <div class="card_body">
+                            <p>Dentro de mis habilidades, tengo conocimientos dentro del Front-End con lenguajes como HTML, CSS y
+                                JavaScript.
+                                En el Back-End, tengo experiencia con PHP, Node.js y Java. También tengo conocimientos en bases de datos
+                                SQL.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="experiencia-card">
+            <div class="card_inner">
+                <div class="card_face card_face--front">
+
+                    <h2>Experiencia</h2>
+                </div>
+                <div class="card_face card_face--back">
+                    <div class="card_content">
+                        <div class="card_header">
+                            <img src="img/experiencia.png" alt="experiencia" class="pp" />
+                        </div>
+                        <div class="card_body">
+                            <p>Tras terminar mi periodo de practicas en ViewNext, en un proyecto SalesForce,
+                                me quedé en dicho proyecto 5 años, tras los cuales adquiri el rango de Desarrollador Senior
+                                y me dieron un equipo, con el cual llevo trabajando 4 años y hemos trabajado con cliente como 
+                                el FBI, el CNI y varias startups tecnológicas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+   
+    </main>
+
+    <footer class="footer">
+        <div class="arrow up" id="scrollUpArrow">
+            <div>
+                <img src="../img/descarga-arrow.png" />
+            </div>
+        </div>
+        <p>© 2023 Joshua Jimenez Perez. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
