@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,9 +18,9 @@
         <div class="dropdown">
             <a href="../index.html" class="dropdown-button">Sobre mí</a>
             <div class="dropdown-content" id="sobreMiDropdown">
-                <a href="../index/index.html" id="enlace-sobre-mi">Mi Historia</a>
-                <a href="../index/index.html" id="enlace-habilidades">Mis Habilidades</a>
-                <a href="../index/index.html" id="enlace-experiencia">Mi Experiencia</a>
+                <a href="../index.html" id="enlace-sobre-mi">Mi Historia</a>
+                <a href="../index.html" id="enlace-habilidades">Mis Habilidades</a>
+                <a href="../index.html" id="enlace-experiencia">Mi Experiencia</a>
             </div>
         </div>
 
@@ -97,7 +98,17 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script src ="../scripts/works.js"></script>
+    <div id="tutorial-overlay" class="tutorial-overlay"></div>
 
+<div id="tutorial-modal" class="tutorial-modal">
+    <div class="tutorial-content">
+        <img src="../img/8bitsme.png" alt="Mi personaje 8-bit" class="tutorial-character">
+        <div class="tutorial-text-box">
+            <p class="tutorial-message"></p>
+            <button id="tutorial-next-button" class="tutorial-button">Entendido</button>
+        </div>
+    </div>
+</div>
 </body>
 <footer class="footer">
         <div class="arrow up" id="scrollUpArrow">

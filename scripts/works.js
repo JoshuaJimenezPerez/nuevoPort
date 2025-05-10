@@ -138,3 +138,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 })
+
+//funcion del tutorial del personaje    
+document.addEventListener('DOMContentLoaded', function() {
+    const tutorialOverlay = document.getElementById('tutorial-overlay');
+    const tutorialModal = document.getElementById('tutorial-modal');
+    const tutorialMessageElement = tutorialModal.querySelector('.tutorial-message');
+    const tutorialNextButton = document.getElementById('tutorial-next-button');
+
+    // Array de mensajes del tutorial
+    const tutorialMessages = [
+        "¡Hola, explorador! Soy Joshua, tu guía en este viaje digital.",
+        "Aquí verás el recorrido de mis proyectos, como si fuera un mapa de un gran mundo.",
+        "Cada punto en el mapa es un proyecto, ¡un hito en mi aventura!",
+        "Haz clic en los puntos para descubrir más sobre mis trabajos y las tecnologías que usé.",
+        "¡Mucha suerte en tu exploración! ¡A la aventura!"
+    ];
+
+    let currentMessageIndex = 0; // Índice del mensaje actual
+    let typingSpeed = 50; // Velocidad de escritura en milisegundos
+
+    // Función para mostrar el tutorial
+    function showTutorial() {
+        tutorialOverlay.classList.add('is-visible');
+        tutorialModal.classList.add('is-visible');
+        typeMessage(tutorialMessages[currentMessageIndex]);
+    }
+
+    // Función para escribir el mensaje con efecto de máquina de escribir
+    function typeMessage(message) {
+        tutorialMessageElement.textContent = ''; // Limpia el mensaje anterior
+        let i = 0;
+        const typingInterval = setInterval(() => {
+            if (i < message.length) {
+                tutorialMessageElement.textContent += message.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, typingSpeed);
+    }
+
+    // Función para avanzar o cerrar el tutorial
+    function nextTutorialStep() {
+        currentMessageIndex++;
+        if (currentMessageIndex < tutorialMessages.length) {
+            typeMessage(tutorialMessages[currentMessageIndex]);
+        } else {
+            // Último mensaje, cerrar el tutorial
+            tutorialOverlay.classList.remove('is-visible');
+            tutorialModal.classList.remove('is-visible');
+            // Opcional: Eliminar los elementos del DOM si no se van a volver a usar
+            // tutorialOverlay.remove();
+            // tutorialModal.remove();
+        }
+    }
+
+    // Event Listener para el botón "Entendido"
+    tutorialNextButton.addEventListener('click', nextTutorialStep);
+
+    // Llama a la función para mostrar el tutorial cuando la página se carga
+    // Puedes añadir una condición si solo quieres que aparezca una vez,
+    // por ejemplo, usando localStorage o sessionStorage
+    // if (!sessionStorage.getItem('tutorialShown')) {
+    //     showTutorial();
+    //     sessionStorage.setItem('tutorialShown', 'true');
+    // }
+
+    // Por ahora, lo mostramos siempre al cargar la página de proyectos para probar
+    showTutorial();
+
+});
