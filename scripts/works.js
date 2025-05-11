@@ -197,9 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event Listener para el botón "Entendido"
     tutorialNextButton.addEventListener('click', nextTutorialStep);
 
-    // Llama a la función para mostrar el tutorial cuando la página se carga
-    // Puedes añadir una condición si solo quieres que aparezca una vez,
-    // por ejemplo, usando localStorage o sessionStorage
+  
     // if (!sessionStorage.getItem('tutorialShown')) {
     //     showTutorial();
     //     sessionStorage.setItem('tutorialShown', 'true');
