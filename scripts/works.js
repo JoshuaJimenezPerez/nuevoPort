@@ -1,36 +1,36 @@
 const proyectosData = [
     {
-        id: 'Hyperplexed Pixar', 
-        titulo: 'Hyperplexed Pixar Project', 
-        enlaceCodigo: '#hyperplexed-pixar-codigo', 
-        archivoHTML: 'proyectos/Hyperplexed Pixar/home.html' 
+        id: 'Hyperplexed Pixar',
+        titulo: 'Hyperplexed Pixar Project',
+        enlaceCodigo: '#hyperplexed-pixar-codigo',
+        archivoHTML: 'proyectos/Hyperplexed Pixar/home.html'
     },
     {
-        id: 'Proyecto_Hyper', 
+        id: 'Proyecto_Hyper',
         titulo: 'Proyecto Hyper',
-        enlaceCodigo: '#proyecto-hyper-codigo', 
-        archivoHTML: '../proyectos/Proyecto_Hyper/home.html' 
+        enlaceCodigo: '#proyecto-hyper-codigo',
+        archivoHTML: '../proyectos/Proyecto_Hyper/home.html'
     },
     {
-        id: 'Proyecto_Lightmouse', 
-        titulo: 'Proyecto Lightmouse', 
-        enlaceCodigo: '#proyecto-lightmouse-codigo', 
-        archivoHTML: '../proyectos/Proyecto_Lightmouse/home.html' 
+        id: 'Proyecto_Lightmouse',
+        titulo: 'Proyecto Lightmouse',
+        enlaceCodigo: '#proyecto-lightmouse-codigo',
+        archivoHTML: '../proyectos/Proyecto_Lightmouse/home.html'
     },
     {
-        id: 'ProyectoArcane', 
-        titulo: 'Proyecto Arcane', 
-        enlaceCodigo: '#proyecto-arcane-codigo', 
-        archivoHTML: '../proyectos/ProyectoArcane/galeria.html' 
+        id: 'ProyectoArcane',
+        titulo: 'Proyecto Arcane',
+        enlaceCodigo: '#proyecto-arcane-codigo',
+        archivoHTML: '../proyectos/ProyectoArcane/galeria.html'
     },
     {
-        id: 'ProyectoCamille', 
-        titulo: 'Proyecto Camille', 
-        enlaceCodigo: '#proyecto-camille-codigo', 
-        archivoHTML: '../proyectos/ProyectoCamille/camille.html' 
+        id: 'ProyectoCamille',
+        titulo: 'Proyecto Camille',
+        enlaceCodigo: '#proyecto-camille-codigo',
+        archivoHTML: '../proyectos/ProyectoCamille/camille.html'
     }
 ];
-
+// Variables para el Modal
 
 const proyectoModal = document.getElementById('proyectoModal');
 const modalProyectoTitulo = document.getElementById('modal-proyecto-titulo');
@@ -38,41 +38,35 @@ const modalProyectoIframe = document.getElementById('modal-proyecto-iframe');
 const closeButton = document.querySelector('.close-button');
 const projectMarkers = document.querySelectorAll('.project-marker');
 
+
 document.addEventListener('DOMContentLoaded', function () {
+
+    // --- Funcionalidad EXISTENTE para Proyectos/Modal ---
     projectMarkers.forEach(marker => {
         marker.addEventListener('click', function () {
             const proyectoId = this.dataset.proyecto;
             const proyecto = proyectosData.find(p => p.id === proyectoId);
 
             if (proyecto) {
-                
-                // --- Actualizar la modal con la información del proyecto ---
                 modalProyectoTitulo.textContent = proyecto.titulo;
                 modalProyectoIframe.src = proyecto.archivoHTML;
-
                 proyectoModal.style.display = "block";
-
             } else {
                 console.warn('No se encontró información para el proyecto con id:', proyectoId);
             }
         });
     });
 
-    // --- Funcionalidad para cerrar la modal ---
-
-    // Cerrar la modal al hacer clic en el botón de cerrar (la "X")
     closeButton.addEventListener('click', function () {
         proyectoModal.style.display = "none";
     });
 
-    // Cerrar la modal al hacer clic FUERA de la modal (en el fondo oscuro)
     window.addEventListener('click', function (event) {
         if (event.target == proyectoModal) {
             proyectoModal.style.display = "none";
         }
     })
 
-    // --- Funcionalidad del Botón de Maximizar (Pantalla Completa) ---
     const proyectoModalContent = document.querySelector('.modal-content');
     const maximizeButton = document.querySelector('.maximize-button');
     let modalIsFullscreen = false;
@@ -82,8 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
         modalIsFullscreen = !modalIsFullscreen;
 
         if (modalIsFullscreen) {
-            // --- Maximizar a pantalla completa ---
-
             if (Object.keys(modalOriginalStyles).length === 0) {
                 modalOriginalStyles = {
                     width: proyectoModalContent.style.width,
@@ -93,8 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     margin: proyectoModalContent.style.margin
                 };
             }
-
-            // Aplicar estilos de pantalla completa
             proyectoModalContent.style.position = 'fixed';
             proyectoModalContent.style.top = '0';
             proyectoModalContent.style.left = '0';
@@ -103,11 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
             proyectoModalContent.style.height = '100vh';
             proyectoModalContent.style.maxHeight = '100vh';
             proyectoModalContent.style.margin = '0';
-
-
         } else {
-            // --- Minimizar a tamaño normal ---
-            // Restaurar los estilos originales guardados
             proyectoModalContent.style.position = 'relative';
             proyectoModalContent.style.width = modalOriginalStyles.width || '80%';
             proyectoModalContent.style.maxWidth = modalOriginalStyles.maxWidth || '600px';
@@ -117,16 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Selecciona la flecha para subir
     const scrollUpArrow = document.getElementById('scrollUpArrow');
-
-
-    // Agrega un evento de clic a la flecha para subir
     scrollUpArrow.addEventListener('click', function () {
-        // Selecciona el header
         const nav = document.querySelector('nav');
-
-        // Desplazamiento suave hacia el header
         nav.scrollIntoView({ behavior: 'smooth' });
     });
 
@@ -137,16 +116,22 @@ document.addEventListener('DOMContentLoaded', function () {
     let parallaxInstanceText = new Parallax(text);
 
 
-})
+    // --- INICIO: Funcionalidad del Tutorial y Audio (TODO MOVIDO AQUÍ DENTRO) ---
 
-//funcion del tutorial del personaje    
-document.addEventListener('DOMContentLoaded', function() {
     const tutorialOverlay = document.getElementById('tutorial-overlay');
     const tutorialModal = document.getElementById('tutorial-modal');
     const tutorialMessageElement = tutorialModal.querySelector('.tutorial-message');
     const tutorialNextButton = document.getElementById('tutorial-next-button');
 
-    // Array de mensajes del tutorial
+    // Verifica esta ruta para el sonido de escritura
+    const typingSound = new Audio('../misc/sounds/Single Keys/keypress-015.wav'); 
+    typingSound.volume = 0.5;
+
+    // Asegúrate que estos IDs de audio coincidan con tu HTML
+    const modalMusic = document.getElementById('modal-music'); 
+    const backgroundCalmMusic = document.getElementById('background-calm-music');
+    const musicToggleButton = document.getElementById('music-toggle-button');
+
     const tutorialMessages = [
         "¡Hola, explorador! Soy Joshua, tu guía en este viaje digital.",
         "Aquí verás el recorrido de mis proyectos, como si fuera un mapa de un gran mundo.",
@@ -155,23 +140,53 @@ document.addEventListener('DOMContentLoaded', function() {
         "¡Mucha suerte en tu exploración! ¡A la aventura!"
     ];
 
-    let currentMessageIndex = 0; // Índice del mensaje actual
-    let typingSpeed = 50; // Velocidad de escritura en milisegundos
+    let currentMessageIndex = 0;
+    let typingSpeed = 30; // Velocidad de escritura
+    let isMusicMuted = localStorage.getItem('isMusicMuted') === 'true'; // Recupera el estado de mute de localStorage
 
-    // Función para mostrar el tutorial
+    // Funciones de Control de Audio
+    function setMusicMuteState(audioElement, play) {
+        if (!audioElement) return;
+
+        if (play) {
+            if (!isMusicMuted) {
+                audioElement.play().catch(e => console.warn("Error al reproducir audio:", e));
+            }
+        } else {
+            audioElement.pause();
+        }
+    }
+
+    function updateMusicToggleButton() {
+        if (isMusicMuted) {
+            musicToggleButton.classList.add('is-muted');
+            musicToggleButton.querySelector('span').textContent = '🔇';
+        } else {
+            musicToggleButton.classList.remove('is-muted');
+            musicToggleButton.querySelector('span').textContent = '🎵';
+        }
+    }
+
+    // Lógica del Tutorial
     function showTutorial() {
         tutorialOverlay.classList.add('is-visible');
         tutorialModal.classList.add('is-visible');
         typeMessage(tutorialMessages[currentMessageIndex]);
+
+        setMusicMuteState(backgroundCalmMusic, false);
+        setMusicMuteState(modalMusic, true);
     }
 
-    // Función para escribir el mensaje con efecto de máquina de escribir
     function typeMessage(message) {
-        tutorialMessageElement.textContent = ''; // Limpia el mensaje anterior
+        tutorialMessageElement.textContent = '';
         let i = 0;
         const typingInterval = setInterval(() => {
             if (i < message.length) {
                 tutorialMessageElement.textContent += message.charAt(i);
+                if (typingSound) {
+                    typingSound.currentTime = 0;
+                    typingSound.play().catch(e => {});
+                }
                 i++;
             } else {
                 clearInterval(typingInterval);
@@ -179,31 +194,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }, typingSpeed);
     }
 
-    // Función para avanzar o cerrar el tutorial
     function nextTutorialStep() {
         currentMessageIndex++;
         if (currentMessageIndex < tutorialMessages.length) {
             typeMessage(tutorialMessages[currentMessageIndex]);
         } else {
-            // Último mensaje, cerrar el tutorial
             tutorialOverlay.classList.remove('is-visible');
             tutorialModal.classList.remove('is-visible');
-            // Opcional: Eliminar los elementos del DOM si no se van a volver a usar
-            // tutorialOverlay.remove();
-            // tutorialModal.remove();
+
+            setMusicMuteState(modalMusic, false);
+            setMusicMuteState(backgroundCalmMusic, true);
         }
     }
 
-    // Event Listener para el botón "Entendido"
-    tutorialNextButton.addEventListener('click', nextTutorialStep);
+    // Lógica del Botón de Música
+    musicToggleButton.addEventListener('click', function () {
+        isMusicMuted = !isMusicMuted;
+        localStorage.setItem('isMusicMuted', isMusicMuted);
+        updateMusicToggleButton();
 
-  
-    // if (!sessionStorage.getItem('tutorialShown')) {
-    //     showTutorial();
-    //     sessionStorage.setItem('tutorialShown', 'true');
-    // }
+        if (isMusicMuted) {
+            setMusicMuteState(modalMusic, false);
+            setMusicMuteState(backgroundCalmMusic, false);
+        } else {
+            if (tutorialModal.classList.contains('is-visible')) {
+                setMusicMuteState(modalMusic, true);
+            } else {
+                setMusicMuteState(backgroundCalmMusic, true);
+            }
+        }
+    });
 
-    // Por ahora, lo mostramos siempre al cargar la página de proyectos para probar
-    showTutorial();
+    // Inicialización al Cargar la Página
+    if (modalMusic) {
+        modalMusic.volume = 0.6;
+    }
+    if (backgroundCalmMusic) {
+        backgroundCalmMusic.volume = 0.4;
+    }
 
-});
+    updateMusicToggleButton(); // Actualizar el icono del botón según el estado inicial
+
+    showTutorial(); // Mostrar tutorial al cargar la página de Proyectos
+
+    tutorialNextButton.addEventListener('click', nextTutorialStep); // Event Listener para el botón "Entendido"
+
+}); 

@@ -39,7 +39,9 @@
             </div>
         </div>
     </nav>
-
+    <button id="music-toggle-button" class="music-toggle-button" aria-label="Activar/Silenciar Música">
+        <span>🎵</span>
+        </button>
     <header class="hero">
         <section class="banner">
             <div class="container">
@@ -66,7 +68,7 @@
     </header>
     <main class="content">
         <div id="mapa-proyectos">
-            <img id="project-map" src="../misc/img/top-view-paper-style-community-map.jpg" alt="mapa-proyectos">
+            <img id="project-map" src="../misc/img/20250511_2023_Ciudad Caceres 8-bits_simple_compose_01jv099vbgehebq2kw3y3mtv15.png" alt="mapa-proyectos">
 
             <div class="project-marker" id="marker-proyecto1" data-proyecto="Proyecto_Hyper">
                 <div class="marker-circle"></div>
@@ -89,33 +91,42 @@
     <!-- Modal para mostrar los proyectos -->
     <div id="proyectoModal" class="modal">
         <div class="modal-content">
-            <span class="maximize-button">&#9974;</span> <span class="close-button">&times;</span>  <h2 id="modal-proyecto-titulo">Título del Proyecto Aquí</h2>
-            <iframe id="modal-proyecto-iframe" src="" frameborder="0" width="100%" height="600px"></iframe>  <div id="modal-proyecto-enlaces">
+            <span class="maximize-button">&#9974;</span> <span class="close-button">&times;</span>
+            <h2 id="modal-proyecto-titulo">Título del Proyecto Aquí</h2>
+            <iframe id="modal-proyecto-iframe" src="" frameborder="0" width="100%" height="600px"></iframe>
+            <div id="modal-proyecto-enlaces">
                 <!-- <a href="#" id="modal-enlace-codigo" target="_blank">Ver Código</a> -->
             </div>
         </div>
     </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-    <script src ="../scripts/works.js"></script>
+
+
     <div id="tutorial-overlay" class="tutorial-overlay"></div>
 
-<div id="tutorial-modal" class="tutorial-modal">
-    <div class="tutorial-content">
-        <img src="../misc/img/8bitsme.png" alt="Mi personaje 8-bit" class="tutorial-character">
-        <div class="tutorial-text-box">
-            <p class="tutorial-message"></p>
-            <button id="tutorial-next-button" class="tutorial-button">Entendido</button>
-        </div>
-    </div>
-</div>
-</body>
-<footer class="footer">
-        <div class="arrow up" id="scrollUpArrow">
-            <div>
-                <img src="../misc/img/descarga-arrow.png" />
+    <div id="tutorial-modal" class="tutorial-modal">
+        <div class="tutorial-content">
+            <img src="../misc/img/8bitsme.png" alt="Mi personaje 8-bit" class="tutorial-character">
+            <div class="tutorial-text-box">
+                <p class="tutorial-message"></p>
+                <button id="tutorial-next-button" class="tutorial-button">Entendido</button>
             </div>
         </div>
-        <p>© 2023 Joshua Jimenez Perez. Todos los derechos reservados.</p>
-    </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="../scripts/works.js"></script>
+
+    <audio id="modal-music" src="../misc/sounds/A Journey Awaits.mp3" loop></audio>
+    <audio id="background-calm-music" src="../misc/sounds/extradimensional_portalhopping.wav" loop></audio>
+    <script src="../scripts/works.js"></script>
+</body>
+<footer class="footer">
+    <div class="arrow up" id="scrollUpArrow">
+        <div>
+            <img src="../misc/img/descarga-arrow.png" />
+        </div>
+    </div>
+    <p>© 2023 Joshua Jimenez Perez. Todos los derechos reservados.</p>
+</footer>
+
 </html>
