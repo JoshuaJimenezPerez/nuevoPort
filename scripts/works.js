@@ -116,18 +116,18 @@ document.addEventListener('DOMContentLoaded', function () {
     let parallaxInstanceText = new Parallax(text);
 
 
-    // --- INICIO: Funcionalidad del Tutorial y Audio (TODO MOVIDO AQUÍ DENTRO) ---
+    // --- INICIO: Funcionalidad del Tutorial y Audio ---
 
     const tutorialOverlay = document.getElementById('tutorial-overlay');
     const tutorialModal = document.getElementById('tutorial-modal');
     const tutorialMessageElement = tutorialModal.querySelector('.tutorial-message');
     const tutorialNextButton = document.getElementById('tutorial-next-button');
 
-    // Verifica esta ruta para el sonido de escritura
+    
     const typingSound = new Audio('../misc/sounds/Single Keys/keypress-015.wav'); 
     typingSound.volume = 0.5;
 
-    // Asegúrate que estos IDs de audio coincidan con tu HTML
+    
     const modalMusic = document.getElementById('modal-music'); 
     const backgroundCalmMusic = document.getElementById('background-calm-music');
     const musicToggleButton = document.getElementById('music-toggle-button');
