@@ -41,7 +41,7 @@ const projectMarkers = document.querySelectorAll('.project-marker');
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- Funcionalidad EXISTENTE para Proyectos/Modal ---
+    // --- Funcionalidad para Proyectos/Modal ---
     projectMarkers.forEach(marker => {
         marker.addEventListener('click', function () {
             const proyectoId = this.dataset.proyecto;
@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // --- INICIO: Funcionalidad del Tutorial y Audio ---
-
     const tutorialOverlay = document.getElementById('tutorial-overlay');
     const tutorialModal = document.getElementById('tutorial-modal');
     const tutorialMessageElement = tutorialModal.querySelector('.tutorial-message');
@@ -239,4 +238,106 @@ document.addEventListener('DOMContentLoaded', function () {
 
     tutorialNextButton.addEventListener('click', nextTutorialStep); // Event Listener para el botón "Entendido"
 
-}); 
+    // Inicio de movimientos de personaje
+
+    const mapContainer = document.getElementById('mapa-proyectos');
+    const mapCharacter = document.getElementById('map-character');
+    let activeMarker = null; //variable de marcador activo.
+
+
+    //verificar que existen 
+    if(!mapContainer || !mapCharacter) {
+        console.warn('Elementos del mapa no encontrados');
+        return;
+    }
+    const moveStep = 5; // Número de píxeles a mover en cada paso
+
+    window.addEventListener('keydown', (event) => {
+    console.log('tecla presionada:', event.key, 'Code', event.code);
+
+    
+
+        let currentTop = parseInt(mapCharacter.style.top) || 0;
+        let currentLeft = parseInt(mapCharacter.style.left) || 0;
+        if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(event.code)) {
+            event.preventDefault();
+        }
+        //determinar la direccion del movimiento basado en la tecla presionada
+        switch (event.code) {
+            case 'ArrowUp':
+                currentTop -= moveStep;
+                break;
+            case 'ArrowDown':
+                currentTop += moveStep;
+                break;
+            case 'ArrowLeft': 
+                currentLeft -= moveStep;
+                break;
+            case 'ArrowRight':
+                currentLeft += moveStep;
+                break;
+        }
+        // Limitar el movimiento dentro del contenedor
+        const mapRect = mapContainer.getBoundingClientRect();
+        const characterRect = mapCharacter.getBoundingClientRect();
+        const maxLeft = mapContainer.offsetWidth - characterRect.width;
+        const maxTop = mapContainer.offsetHeight - characterRect.height;
+        
+        currentLeft = Math.max(0, Math.min(currentLeft, maxLeft));
+        currentTop = Math.max(0, Math.min(currentTop, maxTop));
+
+        mapCharacter.style.left = currentLeft + 'px';
+        mapCharacter.style.top = currentTop + 'px';
+    });
+    //funcion para calcular la distancia entre dos puntos
+    function getDistance(x1, y1, x2, y2) {
+        const dx = x1 - x2;
+        const dy = y1 - y2;
+
+        return Math.sqrt(dx * dx + dy * dy);      
+    }
+    //verificamos la proximidad con los marcadores 
+    function updateActiveMarker(){
+        if(!mapCharacter || !projectMarkers) {
+            console.warn('Elementos del mapa no encontrados');
+            activeMarker = null;
+            return;
+        }
+        const characterRect = mapCharacter.getBoundingClientRect(); //posicion del personaje
+        //calcular el centro del personaje 
+        const characterCenterX = characterRect.left + (characterRect.width / 2);
+        const characterCenterY = characterRect.top + (characterRect.height / 2);
+
+        const proximityThreshold = 60; // Distancia mínima.
+
+        let closestMarker = null;
+        let minDistance = Infinity;
+
+        projectMarkers.forEach(marker => {
+            const markerRect = marker.getBoundingClientRect(); //posicion del marcador
+            //calcular el centro del marcador
+            const markerCenterX = markerRect.left + (markerRect.width / 2);
+            const markerCenterY = markerRect.top + (markerRect.height / 2);
+
+            const distance = getDistance(characterCenterX, characterCenterY, markerCenterX, markerCenterY);
+
+            if (distance < proximityThreshold) {
+                minDistance = distance;
+                closestMarker = marker;
+            }
+        });
+        //actualizamos el marcador activo
+        if( closestMarker !== activeMarker) {  //si el marcador activo es diferente al marcador más cercano
+            if (activeMarker) {
+                activeMarker.classList.remove('is-active');
+                console.log('Marcador Inactivo:', activeMarker.id);
+            }
+            if (closestMarker){
+                closestMarker.classList.add('is-active');
+                console.log('Marcador Activo:', closestMarker.id);
+            }
+            //actualizamos el marcador activo
+            activeMarker = closestMarker;
+        }
+    }
+})
