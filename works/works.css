@@ -236,17 +236,14 @@ main.content {
 /* --- Estilos para el Personaje del Mapa  --- */
 #map-character {
     position: absolute; 
-    width: 40px; 
-    height: auto; 
+    width: 150px; 
+    height: 150px; 
     image-rendering: pixelated; 
     z-index: 10; 
-
-    
     top: 18px; 
     left: 99px; 
-
     /* Transición para la animación de movimiento */
-    transition: top 0.5s linear, left 0.5s linear; /* AJUSTA la duración y timing */
+    transition: top 0.1s linear, left 0.1s linear, transform 0.1s ease-out; 
 }
 
 
@@ -359,7 +356,25 @@ main.content {
         opacity: 1;
         visibility: visible; 
         display: block; 
+    }   
 }
+/* --- Estilos para el botón de cierre del tutorial (opcional) --- */
+.close-button-tutorial {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff; /* O el color que mejor contraste con tu modal */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 20; /* Asegúrate de que esté por encima del contenido del modal */
+}
+
+.close-button-tutorial:hover,
+.close-button-tutorial:focus {
+    color: #ff0000; /* Color al pasar el ratón por encima */
+    text-decoration: none;
 }
 
 /*la modal del tutorial*/
@@ -404,7 +419,7 @@ main.content {
 
 
 .tutorial-character {
-    width: 100px;
+    width: 200px;
     height: auto;
     image-rendering: pixelated;
     border: 1px solid #0f0;
